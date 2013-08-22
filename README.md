@@ -13,3 +13,7 @@ Install through Composer.
     "mdwheele/enum": "dev-master"
 }
 ```
+
+## Next Steps
+
+* Add a static facade to create new Enum types similar to Python's functional API.
