@@ -34,25 +34,21 @@ class EnumTest extends PHPUnit_Framework_TestCase
         $this->assertEquals(MockEnum::Two, $enum->getValue());
     }
 
+    /**
+     * @expectedException \InvalidArgumentException
+     */
     public function testEmptyConstructorWithNoDefault(){
-        try{
-            $enum = new MockEnum();
-            $this->fail("Should throw InvalidArgumentException");
-        }
-        catch(InvalidArgumentException $e){
-            // Passed!
-        }
+        $enum = new MockEnum();
+        $this->fail("Should throw InvalidArgumentException");
     }
 
+    /**
+     * @expectedException \InvalidArgumentException
+     */
     public function testValueOutsideEnumRange()
     {
-        try{
-            $num = new MockEnum("turkey");
-            $this->fail("Should throw InvalidArgumentException");
-        }
-        catch(InvalidArgumentException $e){
-            // Passed!
-        }
+        $num = new MockEnum("turkey");
+        $this->fail("Should throw InvalidArgumentException");
     }
 
     public function testGetConstants()
@@ -78,16 +74,14 @@ class EnumTest extends PHPUnit_Framework_TestCase
         $this->assertEquals(MockEnum::Two, $enum->getValue());
     }
 
+    /**
+     * @expectedException \InvalidArgumentException
+     */
     public function testSetValueOutsideRange()
     {
         $enum = new MockEnum(MockEnum::One);
 
-        try{
-            $enum->setValue("blah");
-            $this->fail("Should throw InvalidArgumentException");
-        }
-        catch(\InvalidArgumentException $e){
-            // Passed!
-        }
+        $enum->setValue("blah");
+        $this->fail("Should throw InvalidArgumentException");
     }
 }
